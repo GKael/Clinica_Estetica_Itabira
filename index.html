@@ -102,18 +102,21 @@
     <!-- Header Elegante -->
     <header class="fixed w-full top-0 z-50 glass shadow-sm transition-all duration-300 py-3" data-aos="fade-down" data-aos-duration="1000">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex justify-between items-center min-h-[4rem]">
-                <div class="flex items-center hoverable">
+            <div class="flex justify-between items-center min-h-[4rem] relative">
+                <!-- Esquerda (Logo) -->
+                <div class="flex items-center hoverable z-10">
                     <img src="logo.png" alt="Logo Estética Itabira" class="h-20 md:h-24 object-contain drop-shadow-sm">
                 </div>
                 
-                <nav class="hidden md:flex space-x-8">
+                <!-- Centro (Menu - Centralizado Absolutamente) -->
+                <nav class="hidden md:flex space-x-8 absolute left-1/2 transform -translate-x-1/2 w-max">
                     <a href="#sobre" class="text-gray-700 hover:text-gold transition text-sm font-medium uppercase tracking-wider hoverable">Nossa Essência</a>
                     <a href="#tratamentos" class="text-gray-700 hover:text-gold transition text-sm font-medium uppercase tracking-wider hoverable">Tratamentos</a>
                     <a href="#contato" class="text-gray-700 hover:text-gold transition text-sm font-medium uppercase tracking-wider hoverable">Contato</a>
                 </nav>
                 
-                <div class="hidden md:flex items-center">
+                <!-- Direita (Botão) -->
+                <div class="hidden md:flex items-center z-10">
                     <a href="https://wa.me/5531988819376" target="_blank" 
                        class="bg-dark text-white px-6 py-2.5 rounded-full hover:bg-gold transition duration-300 shadow-md font-medium text-sm hoverable flex items-center gap-2 btn-shine">
                         Agendar Avaliação
