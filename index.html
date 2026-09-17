@@ -86,13 +86,15 @@
             100% { left: 200%; }
         }
         
-        body.loading { overflow: hidden; }
+        @media (min-width: 768px) {
+            body.loading { overflow: hidden; }
+        }
     </style>
 </head>
 <body class="font-sans text-dark bg-marble-bg antialiased overflow-x-hidden loading">
 
-    <!-- Loading Screen -->
-    <div id="loader" class="fixed inset-0 z-[10000] bg-marble-bg flex flex-col items-center justify-center transition-opacity duration-1000 ease-in-out w-full h-[100dvh]">
+    <!-- Loading Screen (Apenas Desktop) -->
+    <div id="loader" class="hidden md:flex fixed inset-0 z-[10000] bg-marble-bg flex-col items-center justify-center transition-opacity duration-1000 ease-in-out w-full h-[100dvh]">
         <div class="relative flex items-center justify-center animate-pulse w-full px-4">
             <img src="logo.png" alt="Carregando..." class="h-24 md:h-32 object-contain drop-shadow-lg mx-auto">
         </div>
