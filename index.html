@@ -370,25 +370,37 @@
     <!-- AOS & Custom Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Loading Screen
+        // Loading Screen & AOS Init
         document.addEventListener('DOMContentLoaded', () => {
             const loader = document.getElementById('loader');
-            setTimeout(() => {
-                loader.style.opacity = '0';
-                document.body.classList.remove('loading');
+            const isDesktop = window.matchMedia('(min-width: 768px)').matches;
+            
+            function initAOS() {
+                AOS.init({ 
+                    once: false, 
+                    offset: 100, 
+                    duration: 1200, 
+                    easing: 'ease-out-cubic' 
+                });
+            }
+
+            if (isDesktop) {
+                // Desktop: Espera o Loader terminar para iniciar as animações
                 setTimeout(() => {
-                    loader.style.display = 'none';
-                    // Inicializa AOS com configurações estendidas para animações dramáticas
-                    AOS.init({ 
-                        once: false, // Permite que a animação aconteça novamente ao subir e descer
-                        offset: 100, 
-                        duration: 1200, 
-                        easing: 'ease-out-cubic' 
-                    });
-                }, 1000);
-            }, 800);
+                    loader.style.opacity = '0';
+                    document.body.classList.remove('loading');
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+                        initAOS();
+                    }, 1000);
+                }, 800);
+            } else {
+                // Mobile: Remove qualquer delay e inicializa imediatamente
+                loader.style.display = 'none';
+                document.body.classList.remove('loading');
+                initAOS();
+            }
         });
-        // Limpeza de script.
     </script>
 </body>
 </html>
